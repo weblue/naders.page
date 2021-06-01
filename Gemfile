@@ -37,5 +37,5 @@ gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
 gem "kramdown-parser-gfm"
 
 gem "jekyll-paginate"
-gem "jekyll-seo-tag"
+#gem "jekyll-seo-tag"
 

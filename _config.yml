@@ -31,7 +31,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate
-  - jekyll-seo-tag
+#  - jekyll-seo-tag
 paginate: 10
 
 words_read_per_minute: 180
