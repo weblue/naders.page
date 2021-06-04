@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Introspective
-title_long: Introspective | Always stuck in my head
+title_long: Always stuck in my head
 email: nader@naders.page
 description: >- # this means to ignore newlines until "baseurl:"
   This is a site where I explore my technical ideas related
