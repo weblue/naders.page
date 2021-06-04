@@ -38,11 +38,11 @@ hr{
   color:inherit;
 }
 .post-listing:hover{
-  color: #E95420;
+  color: #7720e9;
   text-decoration: none;
 }
 .post-listing:hover > .post-listing-title, .post-listing:hover > .post-listing-info > .post-listing-metadata{
-  color: #E95420;
+  color: #7720e9;
 }
 .post-listing-title{
   overflow: hidden;
@@ -85,7 +85,7 @@ hr{
   text-decoration: none;
 }
 .footer-link svg:hover{
-  fill: #E95420;
+  fill: #7720e9;
 }
 .sr-only{
   position: absolute;

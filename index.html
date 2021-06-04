@@ -2,9 +2,9 @@
 layout: default
 ---
 <div>
-    <h1><span class="text-primary">Lowkey</span><span class="text-black"> is matt's blog</span></h1>
+    <h1><span class="text-black">Welcome</span></h1>
     <p>
-      and on it, matt talks about random things. matt is not great at writing, so don't judge him too hard.
+      This is the personal site and blog of <a class="text-primary" href="mailto:{{ site.email }}">Nader Kirrish</a>. Read some ramblings, check out my work, start a conversation. Reach out if you're interested in collaborating!
     </p>
   </div>
   <hr class="border-top-primary" />
@@ -18,11 +18,12 @@ layout: default
             {% capture words %}
               {{ post.content | number_of_words | minus: 250 }}
             {% endcapture %}
-            {% if words contains "-" %}
-            quick read / {{ words | plus: 250 | append: " words" }}
-            {% else %}
-            ~ {{ words | plus: 250 | divided_by: site.words_read_per_minute | append: " min" }} / {{ words | plus: 250 | append: " words" }}
-            {% endif %}
+            {{ words | plus: 250 | append: " words" }}
+            <!-- {% if words contains "-" %} -->
+            <!-- quick read / {{ words | plus: 250 | append: " words" }} -->
+            <!-- {% else %} -->
+            <!-- ~ {{ words | plus: 250 | divided_by: site.words_read_per_minute | append: " min" }} / {{ words | plus: 250 | append: " words" }} -->
+            <!-- {% endif %} -->
           </div>
         </div>
       </a>
