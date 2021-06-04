@@ -12,3 +12,7 @@ While enjoying the free food and beverages, I pushed myself to learn more about 
 Seven years later, I find myself graduated with my CS degree, four years into my engineering job, and constantly finding myself with technical ideas and general thoughts I'm only *sometimes* able to explore. These days, I'm constantly wishing I had more hours in the day to explore potential app ideas or proofs of concept. I'm also a huge fan of introspection and  hope to learn more about myself at every opportunity I get. Naturally, this leads me to think that **a blog might help me sort myself out**. And although it's not ideal that I lacked the foresight to document my previous experiments or go deeper into exploring some of my older curiosities, I guess it's **better late than never**.
 
 > “The most important conversations you’ll ever have are the ones you’ll have with yourself.” — David Goggins
+
+__6/4/2021 Edit:__
+
+While blogging thoughts is cathartic, I think there's also value in applying these thoughts or finding examples of them in action. A lot of my thoughts tend to be abstract, and adding examples might help connect with more people. Examples of these theories should also serve as proofs (as much as ideas can be proven). Not sure how many people I'd ever expect to see this, but I imagine the value should still be there.
