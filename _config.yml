@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Introspective
-title_long: Introspective | The thoughts of Nader Kirrish
+title_long: Introspective | Always stuck in my head
 email: nader@naders.page
 description: >- # this means to ignore newlines until "baseurl:"
   This is a site where I explore my technical ideas related
@@ -32,7 +32,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate
-#  - jekyll-seo-tag
+  - jekyll-seo-tag
 paginate: 10
 
 words_read_per_minute: 180
@@ -48,8 +48,9 @@ exclude:
   - .git/
   - LICENSE
   - .github/
-#   - node_modules
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - CNAME
+  - ignore-*

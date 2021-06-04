@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<div>
+    <h1><span class="text-primary">Lowkey</span><span class="text-black"> is matt's blog</span></h1>
+    <p>
+      and on it, matt talks about random things. matt is not great at writing, so don't judge him too hard.
+    </p>
+  </div>
+  <hr class="border-top-primary" />
+  {% for post in paginator.posts %}
+    <div>
+      <a class="post-listing" href="{{ post.url | prepend: site.baseurl }}">
+        <div class="post-listing-title">{{ post.title }}</div>
+        <div class="post-listing-info">
+          <div class="post-listing-date">{{ post.date | date: "%b %d '%y" }}</div>
+          <div class="post-listing-metadata">
+            {% capture words %}
+              {{ post.content | number_of_words | minus: 250 }}
+            {% endcapture %}
+            {% if words contains "-" %}
+            quick read / {{ words | plus: 250 | append: " words" }}
+            {% else %}
+            ~ {{ words | plus: 250 | divided_by: site.words_read_per_minute | append: " min" }} / {{ words | plus: 250 | append: " words" }}
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    </div>
+    <hr />
+  {% endfor %}
+  <div class="text-center">
+    {% if paginator.previous_page %}
+      <a class="button button-primary" href="{{ paginator.previous_page_path }}">Previous</a>
+    {% endif %}
+    <span class="tag bg-primary">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a class="button button-primary" href="{{ paginator.next_page_path }}">Next</a>
+    {% endif %}
+  </div>
+  

@@ -14,5 +14,6 @@ Seven years later, I find myself graduated with my CS degree, four years into my
 > “The most important conversations you’ll ever have are the ones you’ll have with yourself.” — David Goggins
 
 __6/4/2021 Edit:__
+>TODO make ^ underlined
 
-While blogging thoughts is cathartic, I think there's also value in applying these thoughts or finding examples of them in action. A lot of my thoughts tend to be abstract, and adding examples might help connect with more people. Examples of these theories should also serve as proofs (as much as ideas can be proven). Not sure how many people I'd ever expect to see this, but I imagine the value should still be there.
+While blogging thoughts is cathartic, I think there's also value in **applying these thoughts or finding examples of them in action**. A lot of my thoughts tend to be abstract, and adding examples might help connect with more people. Examples of these theories should also serve as proofs (as much as ideas can be proven). Not sure how many people I'd ever expect to see this, but I imagine the value should still be there.
