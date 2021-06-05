@@ -7,6 +7,7 @@
 * Monospace font mode?
 * Tags page
 * Redo about page
+* favico
 
 ### <u>These will be a bit more work</u>
 * Twitch/youtube?
