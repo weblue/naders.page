@@ -19,4 +19,4 @@
 ## Footer
 
 * Add explicit usernames to site icons
-* Reformat for horizontal sections
+* Reformat for 2 column sections

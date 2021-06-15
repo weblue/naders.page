@@ -10,6 +10,3 @@ As we're all told over and over again, to be human is to be imperfect. We hear i
 
 This makes it difficult to measure the "goodness" or evil of individuals and their actions.
 
-
-
----
