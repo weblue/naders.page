@@ -9,4 +9,4 @@ Like the cicada, my mother is unyielding. The cicada can be obnoxious and overwh
 
 Out of sight, it does a lot to keep it's world moving forward, hidden away fulfilling it's obligations. But sometimes it's not so silent. 
 
-We don't think of how much it can do over the years, but when it comes time to remind you of it's presence, there's no denying it. But God is it annoying.
+We don't think of how much it can do over the years, but when it comes time to remind you of it's presence, there's no denying it. It earns respect through fear and inconvenience, but through everything it perseveres. 
