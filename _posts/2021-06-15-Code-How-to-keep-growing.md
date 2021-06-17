@@ -7,7 +7,7 @@ categories: code development career
 
 Exploring through forums brought me to a question I had heard before; is programming in your 40s a dead end? Over the course of a career, do programmers have to choose between a move to management or becoming outdated resources?
 
-As programmers and software engineers, the only constant in the field is **change**. Good code doesn't necessarily change often, but the tools and times always do and programmers need to take account to stay relevant in the field. Just as doctors constantly look for more effective, safer, or quick procedures to treat illness, engineers must stay at the edge of technology to keep their solutions viable as the field and their careers keep moving.
+As programmers and software engineers, **the only constant in the field is change**. Good code doesn't necessarily change often, but the tools and times always do and programmers need to take account to stay relevant in the field. Just as doctors constantly look for more effective, safer, or quick procedures to treat illness, engineers must stay at the edge of technology to keep their solutions viable as the field and their careers keep moving.
 
 To me, this means that **being a software engineer is a never-ending pursuit to understand how the field evolves, and figuring out which of those changes are impactful**.
 
@@ -41,7 +41,7 @@ This list gives a couple of places to start on some broad subjects, but there's 
 
 With all the awareness in the world, however, there's no replacement for getting hands-on with new tools and technology. Depending on time and interest, that can be as simple as a hello world and as complex as an entire project from scratch. It's happened more than once where learning a new technology at work coincided with a hobby project; to prepare for a work project, putting together a home project in Vue.js is infinitely more helpful than just reading articles about it.
 
-> "The only way to learn a new programming language is by writing programs in it." - Dennis Ritchie
+> The only way to learn a new programming language is by writing programs in it." - Dennis Ritchie
 
 ## Recognizing value and separating out fads
 With all the new technologies that emerge every day, there's just as many fads and marketing gimmicks as there are useful or practical tools. Many might remember the blockchain craze, and even [companies going up in value for just having "blockchain" in the name](https://www.bloomberg.com/news/articles/2017-12-21/crypto-craze-sees-long-island-iced-tea-rename-as-long-blockchain). 
@@ -70,9 +70,11 @@ In this case, <u>it would've simply been better to start off with a simple Googl
 
 ## Signs you or your company might be getting stale
 
-
-
 > “The most damaging phrase in the language is... it's always been done this way” - Grace Hopper
-https://www.quora.com/Is-software-development-really-a-dead-end-job-after-age-35-40
-https://www.reddit.com/r/programming/comments/nytzaz/what_happens_to_a_programmers_career_as_he_gets/h1muoq7/
-https://www.reddit.com/r/programming/comments/nytzaz/what_happens_to_a_programmers_career_as_he_gets/h1nbwnl/
+
+While trying too hard to implement new gimmicks is a problem, **never updating processes or tooling in a project or company is a death sentence for the project and its developers**. Companies that are lazy or jaded towards change or new technology are generally the same ones reacting to issues instead of preventing them. They also stall out the growth of their own developers.
+
+These projects tend to demonstrate a religious attachment to languages, libraries, or tools, without regard for community consensus about them. Their rigidity can kill new or better ideas from the developers maintaining them. Always ask why a specific language or tool was used, and **if you ever hear "that's just how we do it", start looking for new work**. Never fear feeling stupid when asking these questions.
+
+---
+Ultimately, passion in the field of software will fuel the desire to always continue growing, but this effort takes commitment as well. If you already love computer science, it's that much more interesting and rewarding to keep yourself fresh in this field, and it's never a dull day when you enjoy what you're doing.
