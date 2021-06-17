@@ -77,4 +77,4 @@ While trying too hard to implement new gimmicks is a problem, **never updating p
 These projects tend to demonstrate a religious attachment to languages, libraries, or tools, without regard for community consensus about them. Their rigidity can kill new or better ideas from the developers maintaining them. Always ask why a specific language or tool was used, and **if you ever hear "that's just how we do it", start looking for new work**. Never fear feeling stupid when asking these questions.
 
 ---
-Ultimately, passion in the field of software will fuel the desire to always continue growing, but this effort takes commitment as well. If you already love computer science, it's that much more interesting and rewarding to keep yourself fresh in this field, and it's never a dull day when you enjoy what you're doing.
+Ultimately, passion in the field of software will fuel the desire to always continue growing, but this effort takes commitment as well. If you already love computer science, it's that much more interesting and rewarding to keep evolving with the field, and it's never a dull day when you enjoy what you're doing.
