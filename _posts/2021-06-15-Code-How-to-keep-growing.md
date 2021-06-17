@@ -44,3 +44,6 @@ With all the new technologies that emerge every day, there's just as many fads a
 
 
 > “The most damaging phrase in the language is... it's always been done this way” - Grace Hopper
+https://www.quora.com/Is-software-development-really-a-dead-end-job-after-age-35-40
+https://www.reddit.com/r/programming/comments/nytzaz/what_happens_to_a_programmers_career_as_he_gets/h1muoq7/
+https://www.reddit.com/r/programming/comments/nytzaz/what_happens_to_a_programmers_career_as_he_gets/h1nbwnl/
