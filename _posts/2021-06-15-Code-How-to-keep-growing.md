@@ -16,19 +16,26 @@ Without this ambition to stay ahead of the curve, engineers may find themselves 
 Naturally, what I wanted to know was <u>"how can we keep growing as developers?"</u>. And this lead me to wonder where anyone would start.
 
 ## How can we stay aware of the field?
-Staying on the edge requires commitment and passion! Building on that commitment, there's a few resources that are worth checking out daily/weekly:
+Staying on the edge requires commitment and passion! Building on that commitment, there's a few resources that are worth checking out habitually:
 
-### [HackerNews](https://news.ycombinator.com)
-HackerNews is a technology news aggregator from tech venture capital firm, [ycombinator](https://ycombinator.com). This is a great way to browse a broad set of headlines and find a wide variety of interesting tech news.
-### [ThoughtWorks TechRadar](https://www.thoughtworks.com/radar)
+### News aggregators:
+A great way to browse a broad set of headlines and find a wide variety of interesting tech news.
+
+#### [HackerNews](https://news.ycombinator.com)
+HackerNews is a technology news aggregator from tech venture capital firm, [ycombinator](https://ycombinator.com). 
+
+#### [Reddit's programming subreddit](https://reddit.com/r/programming)
+Reddit's programming subreddit is a community-managed technology news aggregator including articles and interesting topics of discussion frequently involving experienced members of the community.
+
+### Focused Research
+#### [ThoughtWorks TechRadar](https://www.thoughtworks.com/radar)
 TODO
-### [Microsoft's Channel9](https://channel9.msdn.com)
-TODO
-### [Github Trending](https://github.com/trending)
+#### [Microsoft's Channel9](https://channel9.msdn.com)
+Microsoft's internal news hub for Microsoft technologies. Recently there's been a strong focus on Azure services, which is to be expected as it's their fastest growing offering.
+#### [Github Trending](https://github.com/trending)
 Projects and developers getting recent attention on Github.
-### Googling "Best tech to do ____"
-TODO
-https://www.reddit.com/r/programming/
+#### Googling "Best tech to do ____"
+Last but not least, frequently searching for new tech will let you stay somewhat updated on what the trends are for different sectors or common functionality.
 
 This list gives a couple of places to start on some broad subjects, but there's always the more focused newsletters on useful products or even discussions/news on the programming subreddit.
 
@@ -51,13 +58,13 @@ If the technology is a new attempt to compete against an existing product
 
 And if you have a project that could benefit from the improvements:
 - **What's the cost of refactoring?** How much has to be redesigned to take advantage?
-- **Could a more established tool be better suited for my program?**
+- **Could a more established tool be better suited for the project's needs?**
 
 [Netflix's Eureka](https://github.com/Netflix/eureka) is an **AWS service registry based load balancer with failover protection**, first of its kind. My company had a project based on modular and hot-swappable plugins where each plugin could be run on a different container and interacts with the base client using REST. The leader of this project saw Eureka as an opportunity to increase backend functionality to these plugins to add features like canary releases (staged rollouts) of plugin updates or hot-swapping new versions or potentially distributing the base platform to clients and using Eureka to deliver a configurable list of plugins to each. All functionality functionality that sounded great on paper, but there were problems to address. **The project itself did not make use of the AWS service registry** and the base application was not designed in a way to exactly accommodate the service registry.
 
 Long story short, Eureka was incredibly cool, and the project leader decided to commit to making it work for the project. Months later, the refactor was completed, took more work than expected, pulled time from other engineers to implement, and introduced a slew of new bugs to the system.
 
-Eventually, the team promised new features, but ran out of time to deliver. The AWS service registry based design was ditched to avoid the new issues, and the project ended up switching to NGINX to provide the new features that were promised, without the need for further backend design changes.
+The team promised new features, but ran out of time to deliver. The AWS service registry based design was ditched to avoid the new issues, and the project ended up switching to NGINX to provide the new features that were promised, without the need for further backend design changes.
 
 In this case, <u>it would've simply been better to start off with a simple Google search "load balancer for canary releases"</u>, and a less trendy but more practical solution could've been implemented.
 
