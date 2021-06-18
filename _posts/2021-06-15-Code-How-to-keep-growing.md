@@ -68,7 +68,7 @@ HackerNews is a technology news aggregator from tech venture capital firm, [ycom
 #### [Reddit's programming subreddit](https://reddit.com/r/programming)
 Reddit's programming subreddit is a community-managed technology news aggregator including articles and interesting topics of discussion frequently involving experienced members of the community.
 
-### Focused Research
+### Other Sources: 
 #### [ThoughtWorks TechRadar](https://www.thoughtworks.com/radar)
 TODO
 #### [Microsoft's Channel9](https://channel9.msdn.com)
