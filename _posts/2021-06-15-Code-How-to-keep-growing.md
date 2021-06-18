@@ -16,28 +16,9 @@ Without this ambition to stay ahead of the curve, engineers may find themselves 
 Naturally, what I wanted to know was <u>"how can we keep growing as developers?"</u>. And this lead me to wonder where anyone would start.
 
 ## How can we stay aware of the field?
-Staying on the edge requires commitment and passion! Building on that commitment, there's a few resources that are worth checking out habitually:
+Staying on the edge requires commitment and passion! Building on that commitment, there's a few resources that are worth checking out habitually. Check the end of the post for a few suggestions.
 
-### News aggregators:
-A great way to browse a broad set of headlines and find a wide variety of interesting tech news.
-
-#### [HackerNews](https://news.ycombinator.com)
-HackerNews is a technology news aggregator from tech venture capital firm, [ycombinator](https://ycombinator.com). 
-
-#### [Reddit's programming subreddit](https://reddit.com/r/programming)
-Reddit's programming subreddit is a community-managed technology news aggregator including articles and interesting topics of discussion frequently involving experienced members of the community.
-
-### Focused Research
-#### [ThoughtWorks TechRadar](https://www.thoughtworks.com/radar)
-TODO
-#### [Microsoft's Channel9](https://channel9.msdn.com)
-Microsoft's internal news hub for Microsoft technologies. Recently there's been a strong focus on Azure services, which is to be expected as it's their fastest growing offering.
-#### [Github Trending](https://github.com/trending)
-Projects and developers getting recent attention on Github.
-#### Googling "Best tech to do ____"
-Last but not least, frequently searching for new tech will let you stay somewhat updated on what the trends are for different sectors or common functionality.
-
-This list gives a couple of places to start on some broad subjects, but there's always the more focused newsletters on useful products or even discussions/news on the programming subreddit.
+The list gives a couple of places to start on some broad subjects, but there's always the more focused newsletters on useful products or even discussions/news on the programming subreddit.
 
 With all the awareness in the world, however, there's no replacement for getting hands-on with new tools and technology. Depending on time and interest, that can be as simple as a hello world and as complex as an entire project from scratch. It's happened more than once where learning a new technology at work coincided with a hobby project; to prepare for a work project, putting together a home project in Vue.js is infinitely more helpful than just reading articles about it.
 
@@ -60,7 +41,7 @@ And if you have a project that could benefit from the improvements:
 - **What's the cost of refactoring?** How much has to be redesigned to take advantage?
 - **Could a more established tool be better suited for the project's needs?**
 
-[Netflix's Eureka](https://github.com/Netflix/eureka) is an **AWS service registry based load balancer with failover protection**, first of its kind. My company had a project based on modular and hot-swappable plugins where each plugin could be run on a different container and interacts with the base client using REST. The leader of this project saw Eureka as an opportunity to increase backend functionality to these plugins to add features like canary releases (staged rollouts) of plugin updates or hot-swapping new versions or potentially distributing the base platform to clients and using Eureka to deliver a configurable list of plugins to each. All functionality functionality that sounded great on paper, but there were problems to address. **The project itself did not make use of the AWS service registry** and the base application was not designed in a way to exactly accommodate the service registry.
+[Netflix's Eureka](https://github.com/Netflix/eureka) is an **AWS service registry based load balancer with failover protection**, first of its kind. My company had a project based on modular and hot-swappable plugins where each plugin could be run on a different container and interacts with the base client using REST. The leader of this project saw Eureka as an opportunity to increase backend functionality to these plugins to add features like canary releases (staged rollouts) of plugin updates or hot-swapping new versions or potentially distributing the base platform to clients and using Eureka to deliver a configurable list of plugins to each. All functionality that sounded great on paper, but there were problems to address. **The project itself did not make use of the AWS service registry** and the base application was not designed in a way to exactly accommodate the service registry.
 
 Long story short, Eureka was incredibly cool, and the project leader decided to commit to making it work for the project. Months later, the refactor was completed, took more work than expected, pulled time from other engineers to implement, and introduced a slew of new bugs to the system.
 
@@ -70,11 +51,32 @@ In this case, <u>it would've simply been better to start off with a simple Googl
 
 ## Signs you or your company might be getting stale
 
-> “The most damaging phrase in the language is... it's always been done this way” - Grace Hopper
+> The most damaging phrase in the language is... it's always been done this way” - Grace Hopper
 
 While trying too hard to implement new gimmicks is a problem, **never updating processes or tooling in a project or company is a death sentence for the project and its developers**. Companies that are lazy or jaded towards change or new technology are generally the same ones reacting to issues instead of preventing them. They also stall out the growth of their own developers.
 
 These projects tend to demonstrate a religious attachment to languages, libraries, or tools, without regard for community consensus about them. Their rigidity can kill new or better ideas from the developers maintaining them. Always ask why a specific language or tool was used, and **if you ever hear "that's just how we do it", start looking for new work**. Never fear feeling stupid when asking these questions.
+
+---
+## Places to stay updated on new tech
+### News aggregators:
+A great way to browse a broad set of headlines and find a wide variety of interesting tech news.
+
+#### [HackerNews](https://news.ycombinator.com)
+HackerNews is a technology news aggregator from tech venture capital firm, [ycombinator](https://ycombinator.com). 
+
+#### [Reddit's programming subreddit](https://reddit.com/r/programming)
+Reddit's programming subreddit is a community-managed technology news aggregator including articles and interesting topics of discussion frequently involving experienced members of the community.
+
+### Focused Research
+#### [ThoughtWorks TechRadar](https://www.thoughtworks.com/radar)
+TODO
+#### [Microsoft's Channel9](https://channel9.msdn.com)
+Microsoft's internal news hub for Microsoft technologies. Recently there's been a strong focus on Azure services, which is to be expected as it's their fastest growing offering.
+#### [Github Trending](https://github.com/trending)
+Projects and developers getting recent attention on Github.
+#### Googling "Best tech to do ____"
+Last but not least, frequently searching for new tech will let you stay somewhat updated on what the trends are for different sectors or common functionality.
 
 ---
 Ultimately, passion in the field of software will fuel the desire to always continue growing, but this effort takes commitment as well. If you already love computer science, it's that much more interesting and rewarding to keep evolving with the field, and it's never a dull day when you enjoy what you're doing.
