@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Meta: Objective in Blogging"
+title:  "Meta: Goals in Blogging"
 date:   2021-05-28 22:32:50 -0400
 categories: meta self
 ---

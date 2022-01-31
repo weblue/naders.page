@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Code: Techniques for staying updated"
+title:  "Code: Techniques for Staying Updated"
 date:   2021-06-15 12:18:00 -0400
 categories: code development career
 ---
