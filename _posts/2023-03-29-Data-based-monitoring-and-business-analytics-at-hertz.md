@@ -5,8 +5,6 @@ date:   2023-03-29 12:18:00 -0400
 categories: code development career
 ---
 
-# Data-based Monitoring and Business Analytics for Hertz as an SRE
-
 As a contractor for Hertz, my team and I were responsible for creating an API to allow Uber and Lyft to search and book car rentals. Because of the micro service philosophy at Hertz, this system quickly grew in number of interactions with downstream Hertz systems, both in volume of requests (360k+ daily) and in number of services interacted with. With this amount of data and requests, there was an opportunity for a system that monitored a huge number of services in the Hertz architecture and could query both stability and business analytics.
 
 This system was born out of a requirement set on us by Lyft. Since our system was immature, it had plenty of issues; requests that occasionally stalled or returned 5xx errors. To Lyft, this was unacceptable and needed to be addressed. Working with our client, I formalized a set of SLAs and worked with Hertz Enterprise to get access to resources for us that could create a system to monitor these metrics. This was the jump into creating the stability monitoring part of this application.
