@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Data-based Monitoring and Business Analytics for Hertz as an SRE"
+title:  "Data-based Monitoring and BA for Hertz"
 date:   2023-03-29 12:18:00 -0400
 categories: code development career
 ---
