@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://naders.page/feed.xml" rel="self" type="application/atom+xml" /><link href="https://naders.page/" rel="alternate" type="text/html" /><updated>2024-02-27T22:16:28+00:00</updated><id>https://naders.page/feed.xml</id><title type="html">Nader’s Web Services</title><subtitle>This is a site where I explore my technical ideas related to coding or leading, interesting thoughts related to  my constant goal of self-awareness, and general curiosities of life in general.</subtitle><entry><title type="html">Data-based Monitoring and BA for Hertz</title><link href="https://naders.page/code/development/career/2023/03/29/Data-based-monitoring-and-business-analytics-at-hertz.html" rel="alternate" type="text/html" title="Data-based Monitoring and BA for Hertz" /><published>2023-03-29T16:18:00+00:00</published><updated>2023-03-29T16:18:00+00:00</updated><id>https://naders.page/code/development/career/2023/03/29/Data-based-monitoring-and-business-analytics-at-hertz</id><content type="html" xml:base="https://naders.page/code/development/career/2023/03/29/Data-based-monitoring-and-business-analytics-at-hertz.html">&lt;p&gt;As a contractor for Hertz, my team and I were responsible for creating an API to allow Uber and Lyft to search and book car rentals. Because of the micro service philosophy at Hertz, this system quickly grew in number of interactions with downstream Hertz systems, both in volume of requests (360k+ daily) and in number of services interacted with. With this amount of data and requests, there was an opportunity for a system that monitored a huge number of services in the Hertz architecture and could query both stability and business analytics.&lt;/p&gt;
+
+&lt;p&gt;This system was born out of a requirement set on us by Lyft. Since our system was immature, it had plenty of issues; requests that occasionally stalled or returned 5xx errors. To Lyft, this was unacceptable and needed to be addressed. Working with our client, I formalized a set of SLAs and worked with Hertz Enterprise to get access to resources for us that could create a system to monitor these metrics. This was the jump into creating the stability monitoring part of this application.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-slaslos&quot;&gt;Setting SLA/SLOs&lt;/h2&gt;
+
+&lt;p&gt;I had two major objectives when drafting our service level agreements, avoid overworking developers and effectively use our time. This was a large project with plenty of areas to improve, but with this large backlog, we need to make sure our precious time was spent effectively. To measure this, we started by measuring our error rate (500 and 400 errors returned by the system) and our response time, followed by qualifying what we considered to be “good” or “bad” responses, or key performance indicators (KPIs). We measured these over a 60 minute window and set broad percentage goals, with the intention of tightening them over time.&lt;/p&gt;
+
+&lt;p&gt;To move the needle as quickly as possible, we used our goal setting time to sort our backlog in terms of impact on our objectives; we dredged for quick, high-impact goals, followed by goals that lead to large improvements, even if they were a bit more work. Over time, we moved to more incremental changes and shifted our SLOs similarly, starting from 50%, to 80%, 95%, 98%, and 99% of good-to-bad requests.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-monitoring-systems&quot;&gt;Creating Monitoring Systems&lt;/h2&gt;
+
+&lt;p&gt;For our first attempt at monitoring, we naturally gravitated to Cloudwatch for our AWS hosted system. Cloudwatch provided some very basic level tools to allow us to get metrics and visualize them against our goals. At a high level, we could query Cloudwatch logs to get a count of errors, however it came with some quirks. While Cloudwatch can be hugely helpful in understanding an application or architecture, filtering can be difficult and comes with a learning curve. There can also be quirks where the data is coming from; for example, reading the wrong load balancer of a distributed application resulting in under or over reporting or accidentally including health checks (a fast and stable request) making an application seem much healthier than it really is.&lt;/p&gt;
+
+&lt;p&gt;As we worked on this, we realized we could also measure the requests our system was making to other Hertz microservices, both inside and outside our AWS architecture. In our process, we could start categorizing which system was being called by “tagging” our logs (just adding information, really) and creating the appropriate Cloudwatch queries.&lt;/p&gt;
+
+&lt;p&gt;Eventually, Cloudwatch became too difficult to manage and this data was becoming more and more valuable. We explored some of the possible solutions like Splunk and Solarwinds, but landed on a newer, AI-powered platform, Dynatrace. With AI classification, we were able to categorize more specifically, allowing us to hone in on problematic services or endpoints, although this again came with the responsibility of cleaning up or auditing the data coming in.&lt;/p&gt;
+
+&lt;p&gt;With this setup, not only were we monitoring and reacting to the health and stability of our system, we were quickly able to detect problems in downstream systems as they would develop. As we improved our systems, we were able to detect downstream problems so quickly that we frequently were the notifying party and had considered automating these notifications, although this never became a reality. We also learned that stakeholders do not like their services being put under a microscope.&lt;/p&gt;
+
+&lt;h2 id=&quot;finding-business-value-in-our-data&quot;&gt;Finding Business Value in our Data&lt;/h2&gt;
+
+&lt;p&gt;Presenting our data in a meaningful way was always the most difficult part of our efforts. However as we improved our methods and gained more understanding around our data, we found ourselves able to answer more questions during business stakeholder meetings.&lt;/p&gt;
+
+&lt;p&gt;To try to provide this value more consistently, we worked with business analysts to figure out what questions were most important to them and turning these metrics into queries to run against our data. As we became more consistent, we were able to automate delivery of these reports to business analysts.&lt;/p&gt;
+
+&lt;p&gt;As we tracked down problematic endpoints and services, we were more closely able to pinpoint failures that lead to lost business or points of friction where we’d have users quit during a reservation process. With the help of business analysts, we were also able to put a dollar value on process or system failures, helping direct priorities for developer time or stakeholder attention.&lt;/p&gt;
+
+&lt;h2 id=&quot;lessons-learned&quot;&gt;Lessons Learned&lt;/h2&gt;
+
+&lt;p&gt;Using a proxy-based application to infer information about a larger system was a really cool project at scale. I think a lot of things went right for this particular use case, especially as it evolved from necessity. If I were to do it again, I would definitely want to explore the possibility of using other cloud services, like AWS API Gateway, to generate this data. There’s also opportunities to try using something like AWS Kinesis offerings to store and analyze data of this nature and provide it to other services for processing and analysis.&lt;/p&gt;
+
+&lt;p&gt;Although me and my team got to use Cloudwatch and Dynatrace, there’s many other applications that can infer metrics from this kind of data, like Solar Winds, Splunk, or Datadog. Although I’m certain Dynatrace met our needs and allowed us to innovate, it would be interesting to see what’s possible, in terms of visualization and analysis, with these other offerings.&lt;/p&gt;
+
+&lt;p&gt;I look forward to applying this practical knowledge in other applications and architectures, and I also look forward to seeing how this data analysis space (and its current solutions) will evolve over time. I’m certain this field will continue to grow deeper and offer smarter insights.&lt;/p&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://sre.google/sre-book/part-I-introduction/&quot;&gt;Google - Site Reliablility Engineering&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">As a contractor for Hertz, my team and I were responsible for creating an API to allow Uber and Lyft to search and book car rentals. Because of the micro service philosophy at Hertz, this system quickly grew in number of interactions with downstream Hertz systems, both in volume of requests (360k+ daily) and in number of services interacted with. With this amount of data and requests, there was an opportunity for a system that monitored a huge number of services in the Hertz architecture and could query both stability and business analytics.</summary></entry><entry><title type="html">Code: Techniques for Staying Updated</title><link href="https://naders.page/code/development/career/2021/06/15/Code-How-to-keep-growing.html" rel="alternate" type="text/html" title="Code: Techniques for Staying Updated" /><published>2021-06-15T16:18:00+00:00</published><updated>2021-06-15T16:18:00+00:00</updated><id>https://naders.page/code/development/career/2021/06/15/Code-How-to-keep-growing</id><content type="html" xml:base="https://naders.page/code/development/career/2021/06/15/Code-How-to-keep-growing.html">&lt;p&gt;Exploring through forums brought me to a question I had heard before; is programming in your 40s a dead end? Over the course of a career, do programmers have to choose between a move to management or becoming outdated resources?&lt;/p&gt;
+
+&lt;p&gt;As programmers and software engineers, &lt;strong&gt;the only constant in the field is change&lt;/strong&gt;. Good code doesn’t necessarily change often, but the tools and times always do and programmers need to take account to stay relevant in the field. Just as doctors constantly look for more effective, safer, or quick procedures to treat illness, engineers must stay at the edge of technology to keep their solutions viable as the field and their careers keep moving.&lt;/p&gt;
+
+&lt;p&gt;To me, this means that &lt;strong&gt;being a software engineer is a never-ending pursuit to understand how the field evolves, and figuring out which of those changes are impactful&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Without this ambition to stay ahead of the curve, engineers may find themselves being pushed in a direction they might not appreciate; however, many find this effort exhausting and might find it more comfortable to dive deeply into research or academia. Even then, not understanding how to keep up with any field is programmer’s death sentence.&lt;/p&gt;
+
+&lt;p&gt;Naturally, what I wanted to know was &lt;u&gt;&quot;how can we keep growing as developers?&quot;&lt;/u&gt;. And this lead me to wonder where anyone would start.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-can-we-stay-aware-of-the-field&quot;&gt;How can we stay aware of the field?&lt;/h2&gt;
+&lt;p&gt;Staying on the edge requires commitment and passion! Building on that commitment, there’s a few resources that are worth checking out habitually. Check the end of the post for a few suggestions.&lt;/p&gt;
+
+&lt;p&gt;The list gives a couple of places to start on some broad subjects, but there’s always the more focused newsletters on useful products or even discussions/news on the programming subreddit.&lt;/p&gt;
+
+&lt;p&gt;With all the awareness in the world, however, there’s no replacement for getting hands-on with new tools and technology. Depending on time and interest, that can be as simple as a hello world and as complex as an entire project from scratch. It’s happened more than once where learning a new technology at work coincided with a hobby project; to prepare for a work project, putting together a home project in Vue.js is infinitely more helpful than just reading articles about it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The only way to learn a new programming language is by writing programs in it.” - Dennis Ritchie&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;recognizing-value-and-separating-out-fads&quot;&gt;Recognizing value and separating out fads&lt;/h2&gt;
+&lt;p&gt;With all the new technologies that emerge every day, there’s just as many fads and marketing gimmicks as there are useful or practical tools. Many might remember the blockchain craze, and even &lt;a href=&quot;https://www.bloomberg.com/news/articles/2017-12-21/crypto-craze-sees-long-island-iced-tea-rename-as-long-blockchain&quot;&gt;companies going up in value for just having “blockchain” in the name&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Even if every project was interesting and useful, it’d be practically impossible to implement more than a handful into a project.&lt;/p&gt;
+
+&lt;p&gt;This can make it a challenge to sort out what’s going to help your projects vs what’s going to waste your time. Anyone can wait for the big companies to pick up new tech and catapult it to the spotlight, but for everyone else, we should start by asking &lt;strong&gt;is this technology doing something better than a competitor, or is it promising something new?&lt;/strong&gt;. Also keep in mind, the old adage “if it’s too good to be true, it probably is” comes into play.&lt;/p&gt;
+
+&lt;p&gt;If the technology is delivers niche or new functionality, it’s important to ask &lt;strong&gt;is this solving an important problem?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If the technology is a new attempt to compete against an existing product&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;How is it better than competing projects?&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Does it have any caveats or require any additional services compared to competing projects?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And if you have a project that could benefit from the improvements:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;What’s the cost of refactoring?&lt;/strong&gt; How much has to be redesigned to take advantage?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Could a more established tool be better suited for the project’s needs?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Netflix/eureka&quot;&gt;Netflix’s Eureka&lt;/a&gt; is an &lt;strong&gt;AWS service registry based load balancer with failover protection&lt;/strong&gt;, first of its kind. My company had a project based on modular and hot-swappable plugins where each plugin could be run on a different container and interacts with the base client using REST. The leader of this project saw Eureka as an opportunity to increase backend functionality to these plugins to add features like canary releases (staged rollouts) of plugin updates or hot-swapping new versions or potentially distributing the base platform to clients and using Eureka to deliver a configurable list of plugins to each. All functionality that sounded great on paper, but there were problems to address. &lt;strong&gt;The project itself did not make use of the AWS service registry&lt;/strong&gt; and the base application was not designed in a way to exactly accommodate the service registry.&lt;/p&gt;
+
+&lt;p&gt;Long story short, Eureka was incredibly cool, and the project leader decided to commit to making it work for the project. Months later, the refactor was completed, took more work than expected, pulled time from other engineers to implement, and introduced a slew of new bugs to the system.&lt;/p&gt;
+
+&lt;p&gt;The team promised new features, but ran out of time to deliver. The AWS service registry based design was ditched to avoid the new issues, and the project ended up switching to NGINX to provide the new features that were promised, without the need for further backend design changes.&lt;/p&gt;
+
+&lt;p&gt;In this case, &lt;u&gt;it would've simply been better to start off with a simple Google search &quot;load balancer for canary releases&quot;&lt;/u&gt;, and a less trendy but more practical solution could’ve been implemented.&lt;/p&gt;
+
+&lt;h2 id=&quot;signs-you-or-your-company-might-be-getting-stale&quot;&gt;Signs you or your company might be getting stale&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The most damaging phrase in the language is… it’s always been done this way” - Grace Hopper&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;While trying too hard to implement new gimmicks is a problem, &lt;strong&gt;never updating processes or tooling in a project or company is a death sentence for the project and its developers&lt;/strong&gt;. Companies that are lazy or jaded towards change or new technology are generally the same ones reacting to issues instead of preventing them. They also stall out the growth of their own developers.&lt;/p&gt;
+
+&lt;p&gt;These projects tend to demonstrate a religious attachment to languages, libraries, or tools, without regard for community consensus about them. Their rigidity can kill new or better ideas from the developers maintaining them. Always ask why a specific language or tool was used, and &lt;strong&gt;if you ever hear “that’s just how we do it”, start looking for new work&lt;/strong&gt;. Never fear feeling stupid when asking these questions.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;places-to-stay-updated-on-new-tech&quot;&gt;Places to stay updated on new tech&lt;/h2&gt;
+&lt;h3 id=&quot;news-aggregators&quot;&gt;News aggregators:&lt;/h3&gt;
+&lt;p&gt;A great way to browse a broad set of headlines and find a wide variety of interesting tech news.&lt;/p&gt;
+
+&lt;h4 id=&quot;hackernews&quot;&gt;&lt;a href=&quot;https://news.ycombinator.com&quot;&gt;HackerNews&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;HackerNews is a technology news aggregator from tech venture capital firm, &lt;a href=&quot;https://ycombinator.com&quot;&gt;ycombinator&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;reddits-programming-subreddit&quot;&gt;&lt;a href=&quot;https://reddit.com/r/programming&quot;&gt;Reddit’s programming subreddit&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Reddit’s programming subreddit is a community-managed technology news aggregator including articles and interesting topics of discussion frequently involving experienced members of the community.&lt;/p&gt;
+
+&lt;h3 id=&quot;other-sources&quot;&gt;Other Sources:&lt;/h3&gt;
+&lt;h4 id=&quot;thoughtworks-techradar&quot;&gt;&lt;a href=&quot;https://www.thoughtworks.com/radar&quot;&gt;ThoughtWorks TechRadar&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;h4 id=&quot;microsofts-channel9&quot;&gt;&lt;a href=&quot;https://channel9.msdn.com&quot;&gt;Microsoft’s Channel9&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Microsoft’s internal news hub for Microsoft technologies. Recently there’s been a strong focus on Azure services, which is to be expected as it’s their fastest growing offering.&lt;/p&gt;
+&lt;h4 id=&quot;github-trending&quot;&gt;&lt;a href=&quot;https://github.com/trending&quot;&gt;Github Trending&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Projects and developers getting recent attention on Github.&lt;/p&gt;
+&lt;h4 id=&quot;googling-best-tech-to-do-__&quot;&gt;Googling “Best tech to do &lt;em&gt;__&lt;/em&gt;”&lt;/h4&gt;
+&lt;p&gt;Last but not least, frequently searching for new tech will let you stay somewhat updated on what the trends are for different sectors or common functionality.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Ultimately, passion in the field of software will fuel the desire to always continue growing, but this effort takes commitment as well. If you already love computer science, it’s that much more interesting and rewarding to keep evolving with the field, and it’s never a dull day when you enjoy what you’re doing.&lt;/p&gt;</content><author><name></name></author><summary type="html">Exploring through forums brought me to a question I had heard before; is programming in your 40s a dead end? Over the course of a career, do programmers have to choose between a move to management or becoming outdated resources?</summary></entry><entry><title type="html">Meta: Goals in Blogging</title><link href="https://naders.page/meta/self/2021/05/29/On-subject-of-blogs.html" rel="alternate" type="text/html" title="Meta: Goals in Blogging" /><published>2021-05-29T02:32:50+00:00</published><updated>2021-05-29T02:32:50+00:00</updated><id>https://naders.page/meta/self/2021/05/29/On-subject-of-blogs</id><content type="html" xml:base="https://naders.page/meta/self/2021/05/29/On-subject-of-blogs.html">&lt;blockquote&gt;
+  &lt;p&gt;The most important conversations you’ll ever have are the ones you’ll have with yourself. — David Goggins&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In 2014, my buddy, Tyson, and I attended a remote &lt;a href=&quot;https://events.google.com/io&quot;&gt;Google IO&lt;/a&gt; event in Washington, D.C. where many inventors, entrepreneurs, hackers, coders, and other excited minds came together to watch IO, eat, and socialize together. This was my first tech mixer event, and I wasn’t entirely sure what to expect or even what people did at these types of events.&lt;/p&gt;
+
+&lt;p&gt;While enjoying the free food and beverages, I pushed myself to learn more about the people hanging out. One particular individual owned a local tech startup, so I asked, “What advice would you give for an aspiring coder or tech business owner?”, to which he told me to &lt;strong&gt;“just start blogging”&lt;/strong&gt;. He told me to write about my ideas and thoughts, dig deeper into weird subjects, deconstruct failures and successes, and document where I took my interests, coding-related and all. A blog could be a window into my personality for employers or business/coding partners, but more importantly, it would help me learn more about myself.&lt;/p&gt;
+
+&lt;p&gt;Seven years later, I find myself graduated with my CS degree, four years into my engineering job, and constantly finding myself with technical ideas and general thoughts I’m only &lt;em&gt;sometimes&lt;/em&gt; able to explore. These days, I’m constantly wishing I had more hours in the day to explore potential app ideas or proofs of concept. I’m also a huge fan of introspection and  hope to learn more about myself at every opportunity I get. Naturally, this leads me to think that &lt;strong&gt;a blog might help me sort myself out&lt;/strong&gt;. And although it’s not ideal that I lacked the foresight to document my previous experiments or go deeper into exploring some of my older curiosities, I guess it’s &lt;strong&gt;better late than never&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;-nader&quot;&gt;— Nader&lt;/h3&gt;
+
+&lt;h3 id=&quot;642021-edit&quot;&gt;&lt;u&gt;6/4/2021 Edit:&lt;/u&gt;&lt;/h3&gt;
+
+&lt;p&gt;While blogging thoughts is cathartic, I think there’s also value in &lt;strong&gt;applying these thoughts or finding examples of them in action&lt;/strong&gt;. A lot of these ideas tend to be abstract, and adding examples might help connect with more people. Examples of these theories should also serve as proofs (as much as ideas can be proven). Not sure how many people I’d ever expect to see this, but I imagine the value should still be there.&lt;/p&gt;</content><author><name></name></author><summary type="html">The most important conversations you’ll ever have are the ones you’ll have with yourself. — David Goggins</summary></entry></feed>
